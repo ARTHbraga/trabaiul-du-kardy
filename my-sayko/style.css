@@ -1,0 +1,134 @@
+body {
+    font-family: 'Comic Sans MS', Arial, sans-serif;
+    background: linear-gradient(120deg, #f0f8ff, #e6f7ff);
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #2196f3;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 3px 10px #90caf9;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffeb3b;
+}
+
+main {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 0 15px 50px 15px;
+}
+
+section.descritor {
+    background: #ffffffcc;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #bbdefb;
+    margin-bottom: 30px;
+    padding: 25px;
+    transition: box-shadow 0.3s ease;
+}
+
+section.descritor:hover {
+    box-shadow: 0 8px 30px #64b5f6;
+}
+
+h2 {
+    color: #0d47a1;
+    margin-top: 0;
+}
+
+p {
+    font-size: 1.1em;
+}
+
+img {
+    display: block;
+    margin: 15px auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #bbdefb;
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #90caf9;
+    font-size: 1em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 15px auto 0 auto;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0d47a1;
+}
+
+.dica {
+    background-color: #fff9c4;
+    color: #f57f17;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    font-style: italic;
+    text-align: center;
+    font-size: 1em;
+}
+
+footer {
+    background-color: #2196f3;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+footer a {
+    color: #fffde7;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    input[type="text"] {
+        width: 95%;
+    }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Matemática Divertida - 3º Ano</title>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+        // Função para validar respostas de texto
+        function validarRespostaTexto(idInput, respostaCorreta, idMsg) {
+            const resposta = document.getElementById(idInput).value.trim().toLowerCase();
+            const msg = document.getElementById(idMsg);
+            if (resposta === respostaCorreta.toLowerCase()) {
+                msg.textContent = "Parabéns! Resposta correta.";
+                msg.style.color = "green";
+            } else {
+                msg.textContent = "Resposta incorreta. Tente novamente!";
+                msg.style.color = "red";
+            }
+        }
+
+        // Função para validar resposta numérica
+        function validarRespostaNumero(idInput, respostaCorreta, idMsg) {
+            const resposta = document.getElementById(idInput).value.trim();
+            const msg = document.getElementById(idMsg);
+            if (resposta === respostaCorreta.toString()) {
+                msg.textContent = "Parabéns! Resposta correta.";
+                msg.style.color = "green";
+            } else {
+                msg.textContent = "Resposta incorreta. Tente novamente!";
+                msg.style.color = "red";
+            }
+        }
+
+        // Função para validar resposta de múltipla escolha (radio)
+        function validarRespostaRadio(nameRadio, valorCorreto, idMsg) {
+            const radios = document.getElementsByName(nameRadio);
+            const msg = document.getElementById(idMsg);
+            let selecionado = false;
+            for (let r of radios) {
+                if (r.checked) {
+                    selecionado = true;
+                    if (r.value === valorCorreto) {
+                        msg.textContent = "Parabéns! Resposta correta.";
+                        msg.style.color = "green";
+                    } else {
+                        msg.textContent = "Resposta incorreta. Tente novamente!";
+                        msg.style.color = "red";
+                    }
+                    break;
+                }
+            }
+            if (!selecionado) {
+                msg.textContent = "Por favor, selecione uma opção.";
+                msg.style.color = "orange";
+            }
+        }
+
+        // Função para validar checkbox (fato/opinião)
+        function validarRespostaCheckbox(idsCheckbox, idsFato, idsOpiniao, idMsg) {
+            const msg = document.getElementById(idMsg);
+            let fatoCorreto = true;
+            let opiniaoCorreto = true;
+
+            // Verifica se os checkbox de fato estão marcados
+            for (let id of idsFato) {
+                if (!document.getElementById(id).checked) fatoCorreto = false;
+            }
+            // Verifica se os checkbox de opinião NÃO estão marcados
+            for (let id of idsOpiniao) {
+                if (document.getElementById(id).checked) opiniaoCorreto = false;
+            }
+            if (fatoCorreto && opiniaoCorreto) {
+                msg.textContent = "Parabéns! Você identificou corretamente o fato e a opinião.";
+                msg.style.color = "green";
+            } else {
+                msg.textContent = "Resposta incorreta. Reveja as opções e tente novamente.";
+                msg.style.color = "red";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Matemática Divertida - 3º Ano</h1>
+        <nav>
+            <ul>
+                <li><a href="#d1">D1</a></li>
+                <li><a href="#d2">D2</a></li>
+                <li><a href="#d3">D3</a></li>
+                <li><a href="#d4">D4</a></li>
+                <li><a href="#d5">D5</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- D1 -->
+        <section id="d1" class="descritor">
+            <h2>D1 – Reconhecer números naturais até 1000</h2>
+            <p>Qual número é maior?</p>
+            <p><strong>450</strong> ou <strong>345</strong>?</p>
+            <img src="https://cdn-icons-png.flaticon.com/512/123/123345.png" alt="Números" width="150" />
+            <input type="text" id="respostaD1" placeholder="Digite o número maior" />
+            <button onclick="validarRespostaNumero('respostaD1', '450', 'msgD1')">Verificar</button>
+            <div id="msgD1" class="dica"></div>
+            <p><a href="https://www.youtube.com/watch?v=YbGv1Q6a9zA" target="_blank">Vídeo explicativo</a></p>
+        </section>
+
+        <!-- D2 -->
+        <section id="d2" class="descritor">
+            <h2>D2 – Realizar adição e subtração com números naturais</h2>
+            <p>Quanto é <strong>25 + 30</strong>?</p>
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Adição" width="150" />
+            <input type="text" id="respostaD2" placeholder="Digite o resultado" />
+            <button onclick="validarRespostaNumero('respostaD2', '55', 'msgD2')">Verificar</button>
+            <div id="msgD2" class="dica"></div>
+            <p><a href="https://www.youtube.com/watch?v=8r4cV6V6R0o" target="_blank">Vídeo explicativo</a></p>
+        </section>
+
+        <!-- D3 -->
+        <section id="d3" class="descritor">
+            <h2>D3 – Identificar formas geométricas planas</h2>
+            <p>Qual figura plana tem exatamente 3 lados?</p>
+            <img src="figuras.png" alt="figuras planas" width="470" />
+            <input type="text" id="respostaD3" placeholder="Digite o nome da forma" />
+            <button onclick="validarRespostaTexto('respostaD3', 'triangulo', 'msgD3')">Verificar</button>
+            <div id="msgD3" class="dica"></div>
+            <p><a href="https://www.youtube.com/watch?v=YvG7fXq9q3k" target="_blank">Vídeo explicativo</a></p>
+        </section>
+
+        <!-- D4 -->
+        <section id="d4" class="descritor">
+            <h2>D4 – Compreender multiplicação como adição repetida</h2>
+            <p>Quanto é <strong>3 x 4</strong>?</p>
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828884.png" alt="Multiplicação" width="150" />
+            <input type="text" id="respostaD4" placeholder="Digite o resultado" />
+            <button onclick="validarRespostaNumero('respostaD4', '12', 'msgD4')">Verificar</button>
+            <div id="msgD4" class="dica"></div>
+            <p><a href="https://www.youtube.com/watch?v=Z3E1Yb6h9xI" target="_blank">Vídeo explicativo</a></p>
+        </section>
+
+        <!-- D5 -->
+        <section id="d5" class="descritor">
+            <h2>D5 – Resolver problemas simples envolvendo medidas de comprimento</h2>
+            <p>Se uma régua tem 30 cm, quantos centímetros têm 2 réguas?</p>
+            <img src="https://cdn-icons-png.flaticon.com/512/2917/2917994.png" alt="Régua" width="150" />
+            <input type="text" id="respostaD5" placeholder="Digite o total em cm" />
+            <button onclick="validarRespostaNumero('respostaD5', '60', 'msgD5')">Verificar</button>
+            <div id="msgD5" class="dica"></div>
+            <p><a href="https://www.youtube.com/watch?v=6kJjv5qv6hE" target="_blank">Vídeo explicativo</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Outros recursos: <a href="https://www.khanacademy.org.br/math" target="_blank">Khan Academy</a> | <a href="https://www.youtube.com/user/MatematicaRio" target="_blank">Matemática Rio</a></p>
+        <p>&copy; 2025 Matemática Divertida</p>
+    </footer>
+</body>
+</html>
